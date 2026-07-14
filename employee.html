@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Page -->
+        <div id="welcomePage" class="welcome-page">
+            <div class="welcome-content">
+                <div class="ascii-art">
+                    <pre>
+    ______              ______     ______     __    __    ______       
+   ||      ||' |,,,,,,| '||       '|,,,,,,|  '| ,,,, |   | _|  |_ |' |,,,,,,|       
+   ||      ||  ||        ||         ||        ||    ||   || |  | ||  ||              
+   || |--| ||  |------|  ||         ||        ||    ||   || |__| ||  |------|        
+   ||_|  |_||  ||,,,,,,  ||,,,,,,  ||,,,,,,   ||,,,,||   ||      ||  ||,,,,,,        
+   |__|  |__|. |______|. |______|. |______|  .|______|  .||      || .|______|.       
+                    </pre>
+                </div>
+                <h1>WELCOME TO EMPLOYEE ATTENDANCE MANAGEMENT SYSTEM</h1>
+                <div class="developers">
+                    <p>Developed By: Surria Shahbaz (25021519-008)</p>
+                    <p>& Suhairah Mir (25021519-233)</p>
+                    <p>Department: Computer Science</p>
+                    <p>Course: Object Oriented Programming</p>
+                    <p>Group ID: 08</p>
+                    <p>BS_CS 2nd Semester</p>
+                </div>
+                <button onclick="showMainMenu()" class="btn-start">
+                    <i class="fas fa-arrow-right"></i> Press Enter to Continue
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="mainMenu" style="display:none;">
+            <div class="header">
+                <h1><i class="fas fa-clipboard-list"></i> Employee Attendance Management System</h1>
+                <div class="header-stats">
+                    <span><i class="fas fa-users"></i> Employees: <span id="totalEmployees">0</span></span>
+                    <span><i class="fas fa-user-tie"></i> Managers: <span id="totalManagers">0</span></span>
+                    <span><i class="fas fa-building"></i> Departments: <span id="totalDepartments">0</span></span>
+                    <span><i class="fas fa-calendar-check"></i> Attendance: <span id="totalAttendance">0</span></span>
+                </div>
+            </div>
+
+            <div class="main-menu">
+                <div class="menu-grid">
+                    <div class="menu-item" onclick="showModule('employee')">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Employee Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('manager')">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Manager Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('attendance')">
+                        <i class="fas fa-fingerprint"></i>
+                        <span>Attendance Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('overtime')">
+                        <i class="fas fa-clock"></i>
+                        <span>Overtime Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('schedule')">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('department')">
+                        <i class="fas fa-building"></i>
+                        <span>Department Management</span>
+                    </div>
+                    <div class="menu-item" onclick="showModule('leave')">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Leave Management</span>
+                    </div>
+                    <div class="menu-item" onclick="exitSystem()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Exit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Content Area -->
+            <div id="moduleContent" class="module-content">
+                <div class="module-header">
+                    <h2 id="moduleTitle">Select a Module</h2>
+                    <div class="module-actions">
+                        <button onclick="refreshModule()" class="btn btn-secondary">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                        <button onclick="showAddForm()" class="btn btn-primary" id="addBtn">
+                            <i class="fas fa-plus"></i> Add New
+                        </button>
+                    </div>
+                </div>
+                <div id="moduleContentArea">
+                    <div class="welcome-message">
+                        <i class="fas fa-hand-point-left"></i>
+                        <p>Please select a module from the menu above</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add/Edit Form Modal -->
+        <div id="formModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="formTitle">Add New Record</h3>
+                    <span class="close" onclick="closeForm()">&times;</span>
+                </div>
+                <div id="formBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
